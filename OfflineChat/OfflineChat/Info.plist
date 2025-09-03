@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        
+        <!-- App identity -->
+        <key>CFBundleName</key>
+        <string>$(PRODUCT_NAME)</string>
+        <key>CFBundleIdentifier</key>
+        <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+        <key>CFBundleVersion</key>
+        <string>1</string>
+        <key>CFBundleShortVersionString</key>
+        <string>1.0</string>
+        
+        <!-- Local network & Bluetooth permissions -->
+        <key>NSLocalNetworkUsageDescription</key>
+        <string>This app uses the local network to find nearby devices for offline chat.</string>
+        
+        <key>NSBluetoothPeripheralUsageDescription</key>
+        <string>This app uses Bluetooth to connect with nearby devices for offline chat.</string>
+        
+        <key>NSBluetoothAlwaysUsageDescription</key>
+        <string>This app uses Bluetooth to connect with nearby devices for offline chat.</string>
+        
+        <!-- Required Bonjour services -->
+        <key>NSBonjourServices</key>
+        <array>
+            <string>_offline-chat._tcp</string>
+        </array>
+        
+        <!-- Scene configuration -->
+        <key>UIApplicationSceneManifest</key>
+        <dict>
+            <key>UIApplicationSupportsMultipleScenes</key>
+            <false/>
+            <key>UISceneConfigurations</key>
+            <dict>
+                <key>UIWindowSceneSessionRoleApplication</key>
+                <array>
+                    <dict>
+                        <key>UISceneConfigurationName</key>
+                        <string>Default Configuration</string>
+                        <key>UISceneDelegateClassName</key>
+                        <string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
+                        <key>UISceneStoryboardFile</key>
+                        <string>Main</string>
+                    </dict>
+                </array>
+            </dict>
+        </dict>
+        
+    </dict>
+</plist>
