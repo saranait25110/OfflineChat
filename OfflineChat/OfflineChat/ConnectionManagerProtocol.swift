@@ -9,17 +9,18 @@ import Foundation
 
 // MARK: - Connection Manager Protocol
 protocol ConnectionManagerDelegate: AnyObject {
+    
     /// Called when a new/edit/delete message is received
     func didReceiveMessage(_ wrapper: MessageWrapper)
 
     
-    /// Called when connected peers list changes
+//     Called when connected peers list changes
     func didUpdateConnectedPeers(_ peers: [String])
     
-    /// Called when a peer sends an invitation
+    // Called when a peer sends an invitation
     func didReceiveInvitation(from peer: String, invitationHandler: @escaping (Bool) -> Void)
     
-    /// Called when an error occurs
+    // Called when an error occurs
     func didFailWithError(_ error: ConnectionError)
 }
 

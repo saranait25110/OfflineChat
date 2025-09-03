@@ -52,10 +52,10 @@ extension ChatMessage {
         return formatter.string(from: timestamp)
     }
     
-    var displayContent: String {
-        if isDeleted {
-            return "Message deleted"
-        }
-        return content + (isEdited ? " (edited)" : "")
-    }
+//    var displayContent: String {
+//        if isDeleted {
+//            return "Message deleted"
+//        }
+//        return content + (isEdited ? " (edited)" : "")
+//    }
 }

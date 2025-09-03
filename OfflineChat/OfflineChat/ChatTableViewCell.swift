@@ -88,7 +88,7 @@ class ChatTableViewCell: UITableViewCell {
         timestampLabel.text = message.formattedTime
         
         if isMyMessage {
-            // My message - right aligned, blue background
+            
             messageContainer.backgroundColor = .systemBlue
             messageLabel.textColor = .white
             senderLabel.textColor = .white.withAlphaComponent(0.8)
@@ -97,7 +97,7 @@ class ChatTableViewCell: UITableViewCell {
             // Update constraints for right alignment
             updateConstraintsForMyMessage()
         } else {
-            // Other's message - left aligned, gray background
+            
             messageContainer.backgroundColor = .systemGray5
             messageLabel.textColor = .label
             senderLabel.textColor = .secondaryLabel

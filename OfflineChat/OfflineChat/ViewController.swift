@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import AudioToolbox
+
 
 class ViewController: UIViewController {
     
@@ -298,10 +298,6 @@ extension ViewController: ConnectionManagerDelegate {
         
         tableView.reloadData()
         scrollToBottom(animated: true)
-        
-        if wrapper.action == .new && message.senderName != userName {
-            AudioServicesPlaySystemSound(1003)
-        }
     }
     
     

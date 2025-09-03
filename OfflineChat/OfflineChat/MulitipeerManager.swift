@@ -12,7 +12,7 @@ import Combine
 // MARK: - MultipeerConnectivity Manager
 class MultipeerManager: NSObject, ObservableObject {
     
-    // MARK: - Properties
+   
     weak var delegate: ConnectionManagerDelegate?
     
     private let serviceType = "offline-chat"
@@ -21,7 +21,7 @@ class MultipeerManager: NSObject, ObservableObject {
     private let serviceBrowser: MCNearbyServiceBrowser
     private let session: MCSession
     
-    // Published properties (useful for SwiftUI integration)
+    
     @Published var connectedPeers: [String] = []
     @Published var isAdvertising = false
     @Published var isBrowsing = false
@@ -38,6 +38,7 @@ class MultipeerManager: NSObject, ObservableObject {
     
     // MARK: - Initialization
     override init() {
+        
         // Peer ID = device name
         myPeerID = MCPeerID(displayName: UIDevice.current.name)
         
@@ -147,11 +148,9 @@ extension MultipeerManager: MCSessionDelegate {
         }
     }
     
-    
-    
 
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-        print("Received data from \(peerID.displayName), size: \(data.count) bytes")
+        print("Received data from \(peerID.displayName)")
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
         do {
@@ -188,6 +187,7 @@ extension MultipeerManager: MCSessionDelegate {
 
 // MARK: - MCNearbyServiceAdvertiserDelegate
 extension MultipeerManager: MCNearbyServiceAdvertiserDelegate {
+    
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
         DispatchQueue.main.async {
             self.delegate?.didReceiveInvitation(from: peerID.displayName) { [weak self] accept in
